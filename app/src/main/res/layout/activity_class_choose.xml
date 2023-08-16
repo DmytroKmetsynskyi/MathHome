@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClassChooseActivity">
+
+    <TextView
+        android:id="@+id/chooseClassText"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLayout"
+        android:layout_marginBottom="50dp"
+
+        android:fontFamily="@font/montserrat"
+        android:text="Оберіть клас"
+        android:textSize="25dp"/>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" >
+
+        <Button
+            android:id="@+id/fiveClassButton"
+
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+
+            android:text="5 клас"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/sixClassButton"
+
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+
+            android:text="6 клас"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18dp"
+
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:id="@+id/sevenClassButton"
+
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+
+            android:text="7 клас"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18dp"
+
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:id="@+id/eightClassButton"
+
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+
+            android:text="8 клас"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18dp"
+
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:id="@+id/nineClassButton"
+
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+
+            android:text="9 клас"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18dp"
+
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:id="@+id/tenClassButton"
+
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+
+            android:text="10 клас"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18dp"
+
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:id="@+id/elevenClassButton"
+
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+
+            android:text="11 клас"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18dp"
+
+            android:layout_marginTop="15dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
