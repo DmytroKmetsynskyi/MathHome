@@ -59,7 +59,7 @@ public class RegisterFragment extends Fragment {
                     mAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            Intent mIntent = new Intent(view.getContext(), ClassChooseActivity.class);
+                            Intent mIntent = new Intent(view.getContext(), MainActivity.class);
                             startActivity(mIntent);
 
                             getActivity().finish();
