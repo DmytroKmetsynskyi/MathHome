@@ -5,15 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView classText;
     Button changeClassButton;
+
+    ImageButton gamesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         classText = findViewById(R.id.classText);
         changeClassButton = findViewById(R.id.changeClassButton);
+        gamesButton = findViewById(R.id.gamesButton);
 
         int value = sharedPreferences.getInt("class", 5);
         classText.setText(value + " клас");
@@ -36,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(mIntent);
 
                 finish();
+            }
+        });
+
+        gamesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(MainActivity.this, MathGameActivity.class);
+                startActivity(mIntent);
             }
         });
     }
