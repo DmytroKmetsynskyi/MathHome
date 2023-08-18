@@ -1,50 +1,78 @@
 package com.fernfog.mathhome;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MathResultsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class MathResultsFragment extends Fragment {
+public class MathResultsFragment extends DialogFragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    Button playAgainButton;
+    Button exitFromFragmentButton;
 
-    private String mParam1;
-    private String mParam2;
+    TextView someText, trueText, falseText;
 
-    public MathResultsFragment() {
+    int totalAttempts = 0;
+    int correctAttempts = 0;
 
-    }
-    public static MathResultsFragment newInstance(String param1, String param2) {
-        MathResultsFragment fragment = new MathResultsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public MathResultsFragment(int totalAttempts, int correctAttempts) {
+        this.correctAttempts = correctAttempts;
+        this.totalAttempts = totalAttempts;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_math_results, container, false);
+        View view = inflater.inflate(R.layout.fragment_math_results, container, false);
+
+        playAgainButton = view.findViewById(R.id.playAgainButton);
+        exitFromFragmentButton = view.findViewById(R.id.exitFromFragmentButton);
+
+        someText = view.findViewById(R.id.someText);
+        trueText = view.findViewById(R.id.trueText);
+        falseText = view.findViewById(R.id.falseText);
+
+        playAgainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(view.getContext(), ClassChooseActivity.class);
+                startActivity(mIntent);
+
+                dismiss();
+            }
+        });
+
+        exitFromFragmentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
+
+        someText.setText("За 60 секунд ви відповіли на "+ totalAttempts +" запитань.\nЗ них: ");
+        trueText.setText("Вірно: " + correctAttempts);
+        falseText.setText("Не вірно:" + (totalAttempts - correctAttempts));
+
+        return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        getActivity().finish();
     }
 }

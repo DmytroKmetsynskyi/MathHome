@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class MathGameActivity extends AppCompatActivity {
 
-    private TextView questionTextView, resultTextView;
+    private TextView questionTextView, secondsUntilFinishedText;
     private Button option1Button, option2Button, option3Button;
 
     private int correctAnswer;
@@ -30,7 +30,6 @@ public class MathGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_math_game);
 
         questionTextView = findViewById(R.id.questionTextView);
-        resultTextView = findViewById(R.id.resultTextView);
         option1Button = findViewById(R.id.option1Button);
         option2Button = findViewById(R.id.option2Button);
         option3Button = findViewById(R.id.option3Button);
@@ -67,12 +66,15 @@ public class MathGameActivity extends AppCompatActivity {
         quizTimer = new CountDownTimer(TOTAL_QUIZ_DURATION, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                // Update timer display if needed
+                secondsUntilFinishedText = findViewById(R.id.secondsUntilFinishedText);
+                secondsUntilFinishedText.setText("" + millisUntilFinished / 1000);
             }
 
             @Override
             public void onFinish() {
-                showResults();
+                MathResultsFragment mathResultsFragment = new MathResultsFragment(totalAttempts, correctAttempts);
+                mathResultsFragment.setRetainInstance(true);
+                mathResultsFragment.show(getSupportFragmentManager(), "mathResultsFragment");;
             }
         }.start();
     }
@@ -136,17 +138,7 @@ public class MathGameActivity extends AppCompatActivity {
         if (selectedOption == correctAnswer) {
             correctAttempts++;
         }
-
         generateQuestion();
     }
 
-    private void showResults() {
-        quizTimer.cancel(); // Ensure the timer is canceled
-        resultTextView.setText("Total attempts: " + totalAttempts +
-                "\nCorrect attempts: " + correctAttempts +
-                "\nIncorrect attempts: " + (totalAttempts - correctAttempts));
-        option1Button.setVisibility(View.GONE);
-        option2Button.setVisibility(View.GONE);
-        option3Button.setVisibility(View.GONE);
-    }
 }

@@ -3,12 +3,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MathResultsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/gameOverText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Гру завершено"
+            android:textSize="40dp"
+            android:fontFamily="@font/montserrat"
+
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/resultsText"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Результати: "
+            android:textSize="30dp"
+            android:fontFamily="@font/montserrat"
+
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gameOverText" />
+
+        <TextView
+            android:id="@+id/someText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="За 60 секунд ви\nвідповіли на 13 запитань.\nЗ них: "
+            android:textSize="25dp"
+            android:fontFamily="@font/montserrat"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/resultsText" />
+
+        <TextView
+            android:id="@+id/trueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Вірно: 0"
+            android:textSize="30dp"
+            android:fontFamily="@font/montserrat"
+
+            android:layout_marginTop="50dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/falseText"
+            app:layout_constraintTop_toBottomOf="@id/someText"
+            app:layout_constraintBottom_toTopOf="@id/playAgainButton"/>
+
+        <TextView
+            android:id="@+id/falseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Не вірно: 0"
+            android:textSize="30dp"
+            android:fontFamily="@font/montserrat"
+
+            android:layout_marginTop="50dp"
+
+            app:layout_constraintLeft_toRightOf="@id/trueText"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/someText"
+            app:layout_constraintBottom_toTopOf="@id/exitFromFragmentButton"/>
+
+        <Button
+            android:id="@+id/playAgainButton"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="50dp"
+
+            android:text="Зіграти ще"
+            android:textSize="25dp"
+            android:fontFamily="@font/montserrat"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trueText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/exitFromFragmentButton"/>
+
+        <Button
+            android:id="@+id/exitFromFragmentButton"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+
+            android:text="Вийти"
+            android:textSize="25dp"
+            android:fontFamily="@font/montserrat"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/falseText"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/playAgainButton"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
