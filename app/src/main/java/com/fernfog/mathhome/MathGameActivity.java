@@ -17,7 +17,7 @@ public class MathGameActivity extends AppCompatActivity {
     private TextView questionTextView, secondsUntilFinishedText;
     private Button option1Button, option2Button, option3Button;
 
-    private int correctAnswer;
+    private float correctAnswer;
     private int totalAttempts;
     private int correctAttempts;
 
@@ -37,21 +37,21 @@ public class MathGameActivity extends AppCompatActivity {
         option1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkAnswer(Integer.parseInt(option1Button.getText().toString()));
+                checkAnswer(Float.parseFloat(option1Button.getText().toString()));
             }
         });
 
         option2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkAnswer(Integer.parseInt(option2Button.getText().toString()));
+                checkAnswer(Float.parseFloat(option2Button.getText().toString()));
             }
         });
 
         option3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkAnswer(Integer.parseInt(option3Button.getText().toString()));
+                checkAnswer(Float.parseFloat(option3Button.getText().toString()));
             }
         });
 
@@ -81,8 +81,8 @@ public class MathGameActivity extends AppCompatActivity {
 
     private void generateQuestion() {
         Random random = new Random();
-        int operand1 = random.nextInt(100);
-        int operand2 = random.nextInt(100);
+        float operand1 = random.nextInt(100);
+        float operand2 = random.nextInt(100);
 
         int i = random.nextInt(4);
 
@@ -112,18 +112,18 @@ public class MathGameActivity extends AppCompatActivity {
             }
         }
 
-        List<Integer> options = generateOptions(correctAnswer);
+        List<Float> options = generateOptions(correctAnswer);
         option1Button.setText(String.valueOf(options.get(0)));
         option2Button.setText(String.valueOf(options.get(1)));
         option3Button.setText(String.valueOf(options.get(2)));
     }
 
-    private List<Integer> generateOptions(int correctAnswer) {
+    private List<Float> generateOptions(float correctAnswer) {
         Random random = new Random();
-        int incorrect1 = correctAnswer + random.nextInt(10) + 1;
-        int incorrect2 = correctAnswer - random.nextInt(10) - 1;
+        float incorrect1 = correctAnswer + random.nextInt(10) + 1;
+        float incorrect2 = correctAnswer - random.nextInt(10) - 1;
 
-        List<Integer> options = new ArrayList<>();
+        List<Float> options = new ArrayList<>();
         options.add(correctAnswer);
         options.add(incorrect1);
         options.add(incorrect2);
@@ -133,7 +133,7 @@ public class MathGameActivity extends AppCompatActivity {
         return options;
     }
 
-    private void checkAnswer(int selectedOption) {
+    private void checkAnswer(float selectedOption) {
         totalAttempts++;
         if (selectedOption == correctAnswer) {
             correctAttempts++;
