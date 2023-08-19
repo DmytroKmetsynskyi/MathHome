@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView classText;
     Button changeClassButton;
-
-    ImageButton gamesButton;
+    ImageButton videosButton, gamesButton, comicsButton, bonusTasksButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         classText = findViewById(R.id.classText);
         changeClassButton = findViewById(R.id.changeClassButton);
         gamesButton = findViewById(R.id.gamesButton);
+        videosButton = findViewById(R.id.videosButton);
+        comicsButton = findViewById(R.id.comicsButton);
+        bonusTasksButton = findViewById(R.id.bonusTasksButton);
 
         int value = sharedPreferences.getInt("class", 5);
         classText.setText(value + " клас");
@@ -48,6 +50,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(MainActivity.this, MathGameActivity.class);
+                startActivity(mIntent);
+            }
+        });
+        videosButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(MainActivity.this, VideosActivity.class);
+                startActivity(mIntent);
+            }
+        });
+        comicsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(MainActivity.this, ComicsActivity.class);
+                startActivity(mIntent);
+            }
+        });
+        bonusTasksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(MainActivity.this, AdditionalTasksActivity.class);
                 startActivity(mIntent);
             }
         });

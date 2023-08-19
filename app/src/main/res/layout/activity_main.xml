@@ -20,6 +20,19 @@
         app:layout_constraintRight_toLeftOf="@id/gamesButton"
         app:layout_constraintBottom_toTopOf="@id/videosButton" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/montserrat"
+
+
+        app:layout_constraintTop_toBottomOf="@id/comicsButton"
+        app:layout_constraintLeft_toLeftOf="@id/comicsButton"
+        app:layout_constraintRight_toRightOf="@id/comicsButton"
+
+        android:text="Комікси" />
+
     <ImageButton
         android:id="@+id/gamesButton"
 
@@ -33,6 +46,19 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/comicsButton"
         app:layout_constraintBottom_toTopOf="@id/bonusTasksButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/montserrat"
+
+
+        app:layout_constraintTop_toBottomOf="@id/gamesButton"
+        app:layout_constraintLeft_toLeftOf="@id/gamesButton"
+        app:layout_constraintRight_toRightOf="@id/gamesButton"
+
+        android:text="Ігри" />
 
     <ImageButton
         android:id="@+id/videosButton"
@@ -48,6 +74,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/mainToolBar" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/montserrat"
+
+
+        app:layout_constraintTop_toBottomOf="@id/videosButton"
+        app:layout_constraintLeft_toLeftOf="@id/videosButton"
+        app:layout_constraintRight_toRightOf="@id/videosButton"
+
+        android:text="Відео" />
+
     <ImageButton
         android:id="@+id/bonusTasksButton"
 
@@ -61,6 +100,19 @@
         app:layout_constraintLeft_toRightOf="@+id/videosButton"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/mainToolBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/montserrat"
+
+
+        app:layout_constraintTop_toBottomOf="@id/bonusTasksButton"
+        app:layout_constraintLeft_toLeftOf="@id/bonusTasksButton"
+        app:layout_constraintRight_toRightOf="@id/bonusTasksButton"
+
+        android:text="Додаткові завдання" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolBar"
